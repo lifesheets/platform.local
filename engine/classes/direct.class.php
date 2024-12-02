@@ -24,4 +24,25 @@ class direct {
         return $data;
     }
 
+    /**
+     * Перевірка на існування файлу або директорії.
+     *
+     * @param string $path Шлях до файлу або директорії.
+     * @param string $type Тип перевірки ('file' для файлу, 'dir' для директорії).
+     * @return bool Повертає true, якщо файл або директорія існує, інакше false.
+     */
+
+    public static function existsPath($path, $type = 'file') {
+        if ($type === 'file') {
+            // Повертає true, якщо файл існує, інакше false
+            return is_file(ROOT . '/' . $path);
+        } elseif ($type === 'dir') {
+            // Повертає true, якщо директорія існує, інакше false
+            return is_dir(ROOT . '/' . $path);
+        } else {
+            // Якщо тип невідомий, повертаємо false
+            return false;
+        }
+    }
+
 }
