@@ -77,6 +77,17 @@ function remove_script(?string $string = null): string {
 function _filter(string $data): string {
     return remove_script(addslashes(htmlspecialchars($data, ENT_QUOTES | ENT_HTML5)));
 /**
+ * Отримує значення з $_COOKIE.
+ *
+ * @param string $key Ключ.
+ * @return string Значення.
+ */
+
+function cookie(string $key): string {
+    return remove_script($_COOKIE[$key] ?? '');
+}
+
+/**
  * Отримує або встановлює значення в $_SESSION.
  *
  * @param string $key Ключ.
