@@ -77,6 +77,23 @@ function remove_script(?string $string = null): string {
 function _filter(string $data): string {
     return remove_script(addslashes(htmlspecialchars($data, ENT_QUOTES | ENT_HTML5)));
 /**
+ * Отримує або встановлює значення в $_SESSION.
+ *
+ * @param string $key Ключ.
+ * @param mixed $value Значення (для встановлення).
+ * @return mixed Значення або стан.
+ */
+
+function session(string $key, mixed $value = 'no_data'): mixed {
+    if ($value === 'no_data') {
+        return $_SESSION[$key] ?? null;
+    }
+
+    $_SESSION[$key] = $value;
+    return $value;
+}
+
+/**
  * Отримує або встановлює значення конфігурації.
  *
  * @param string $key Ключ.
