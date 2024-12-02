@@ -87,6 +87,9 @@ define('HTTP_REFERER', _filter($_SERVER['HTTP_REFERER'] ?? 'none'));
 define('BROWSER', _filter($_SERVER['HTTP_USER_AGENT'] ?? 'none'));
 define('IP', _filter(filter_var($_SERVER['REMOTE_ADDR'] ?? '', FILTER_VALIDATE_IP) ?? ''));
 
+#  Протокол
+define('SCHEME', (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://');
+
 /**
  * Отримує значення з $_GET.
  *
