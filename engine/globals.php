@@ -90,6 +90,9 @@ define('IP', _filter(filter_var($_SERVER['REMOTE_ADDR'] ?? '', FILTER_VALIDATE_I
 #  Протокол
 define('SCHEME', (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://');
 
+#  Повна URL-адреса запиту
+define('REQUEST_URI', _filter($_SERVER['REQUEST_URI'] ?? '/'));
+
 /**
  * Отримує значення з $_GET.
  *
