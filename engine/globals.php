@@ -76,6 +76,9 @@ function remove_script(?string $string = null): string {
 
 function _filter(string $data): string {
     return remove_script(addslashes(htmlspecialchars($data, ENT_QUOTES | ENT_HTML5)));
+#  Поточний системний час
+define('TM', time());
+
 #  Дані сервера
 define('PHP_SELF', _filter($_SERVER['PHP_SELF']));
 define('HTTP_HOST', _filter($_SERVER['HTTP_HOST'] ?? ''));
