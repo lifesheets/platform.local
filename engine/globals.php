@@ -77,6 +77,18 @@ function remove_script(?string $string = null): string {
 function _filter(string $data): string {
     return remove_script(addslashes(htmlspecialchars($data, ENT_QUOTES | ENT_HTML5)));
 /**
+ * Отримує значення з $_POST.
+ *
+ * @param string $key Ключ.
+ * @param int $sanitize Очищення даних.
+ * @return mixed Значення.
+ */
+
+function post(string $key, int $sanitize = 0): mixed {
+    return $sanitize === 0 ? remove_script($_POST[$key] ?? '') : ($_POST[$key] ?? null);
+}
+
+/**
  * Отримує значення з $_COOKIE.
  *
  * @param string $key Ключ.
