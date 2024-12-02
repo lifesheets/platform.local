@@ -78,3 +78,20 @@ function _filter(string $data): string {
     return remove_script(addslashes(htmlspecialchars($data, ENT_QUOTES | ENT_HTML5)));
 }
 
+/**
+ * Перенаправляє на іншу сторінку.
+ *
+ * @param string $url URL-адреса.
+ * @param int $refresh Час перед перенаправленням (секунди).
+ * @return void
+ */
+
+function redirect(string $url, int $refresh = 0): void {
+    if ($refresh > 0) {
+        header("Refresh: $refresh; url=$url");
+    } else {
+        header("Location: $url");
+    }
+    exit;
+}
+
