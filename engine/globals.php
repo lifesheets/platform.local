@@ -76,6 +76,23 @@ function remove_script(?string $string = null): string {
 
 function _filter(string $data): string {
     return remove_script(addslashes(htmlspecialchars($data, ENT_QUOTES | ENT_HTML5)));
+/**
+ * Визначає версію пристрою (мобільна чи десктоп).
+ *
+ * @return bool True для мобільних пристроїв.
+ */
+
+function is_mobile(): bool {
+    $mobileDevices = ['iphone', 'android', 'mobile', 'ipad', 'ipod', 'blackberry', 'windows phone'];
+    $agent = strtolower(BROWSER);
+
+    foreach ($mobileDevices as $device) {
+        if (str_contains($agent, $device)) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 /**
