@@ -77,6 +77,18 @@ function remove_script(?string $string = null): string {
 function _filter(string $data): string {
     return remove_script(addslashes(htmlspecialchars($data, ENT_QUOTES | ENT_HTML5)));
 /**
+ * Отримує значення з $_GET.
+ *
+ * @param string $key Ключ.
+ * @param int $sanitize Очищення даних.
+ * @return mixed Значення.
+ */
+
+function get(string $key, int $sanitize = 0): mixed {
+    return $sanitize === 0 ? remove_script($_GET[$key] ?? '') : ($_GET[$key] ?? null);
+}
+
+/**
  * Отримує значення з $_POST.
  *
  * @param string $key Ключ.
