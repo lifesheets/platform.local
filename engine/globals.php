@@ -1,6 +1,12 @@
 <?php
 
 ob_start(); 
+
+# Встановлює заголовки HTTP
+header('Powered: LiveCMS');
+header("Cache-control: public");
+header("Expires: " . gmdate("D, d M Y H:i:s", time() + 60 * 60 * 24) . " GMT");
+
 # Запуск сесій
 @session_name('SID');
 @session_start();
