@@ -76,6 +76,14 @@ function remove_script(?string $string = null): string {
 
 function _filter(string $data): string {
     return remove_script(addslashes(htmlspecialchars($data, ENT_QUOTES | ENT_HTML5)));
+#  Дані сервера
+define('PHP_SELF', _filter($_SERVER['PHP_SELF']));
+define('HTTP_HOST', _filter($_SERVER['HTTP_HOST'] ?? ''));
+define('SERVER_NAME', _filter($_SERVER['SERVER_NAME'] ?? ''));
+define('HTTP_REFERER', _filter($_SERVER['HTTP_REFERER'] ?? 'none'));
+define('BROWSER', _filter($_SERVER['HTTP_USER_AGENT'] ?? 'none'));
+define('IP', _filter(filter_var($_SERVER['REMOTE_ADDR'] ?? '', FILTER_VALIDATE_IP) ?? ''));
+
 /**
  * Отримує значення з $_GET.
  *
