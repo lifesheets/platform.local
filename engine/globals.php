@@ -77,6 +77,25 @@ function remove_script(?string $string = null): string {
 function _filter(string $data): string {
     return remove_script(addslashes(htmlspecialchars($data, ENT_QUOTES | ENT_HTML5)));
 /**
+ * Отримує або встановлює значення конфігурації.
+ *
+ * @param string $key Ключ.
+ * @param mixed|null $value Значення (для встановлення).
+ * @return mixed Значення або стан.
+ */
+
+function config(string $key, mixed $value = null): mixed {
+    global $config;
+
+    if ($value === null) {
+        return _filter($config[$key] ?? '');
+    }
+
+    $config[$key] = $value;
+    return $value;
+}
+
+/**
  * Визначає версію пристрою (мобільна чи десктоп).
  *
  * @return bool True для мобільних пристроїв.
