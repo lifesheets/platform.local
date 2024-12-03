@@ -199,3 +199,5 @@ function redirect(string $url, int $refresh = 0): void {
     exit;
 }
 
+# Завантаження функцій та класів
+require_once (LCMS . '/autoload.php');
