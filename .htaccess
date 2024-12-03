@@ -13,7 +13,7 @@
     # Перенаправлення для URL, що починається з "/warning".
     RewriteRule ^warning/?$ /index.php?base=engine&section=warning [L,QSA]
     # Перенаправлення для URL, що відповідає формату "/modules/путь/раздел".
-    RewriteRule ^plugins/([-a-zA-Z0-9_]*)/([-a-zA-Z0-9_]*)/?$ /index.php?base=modules&path=$1&section=$2 [L,QSA]
+    RewriteRule ^get/([-a-zA-Z0-9_]*)/([-a-zA-Z0-9_]*)/?$ /index.php?base=modules&path=$1&section=$2 [L,QSA]
 </IfModule>
 
 <IfModule php_value>

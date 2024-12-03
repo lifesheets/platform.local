@@ -2,7 +2,6 @@
 
 define('SECURITY_LIVECMS', true);
 define('ROOT', dirname(__FILE__));
-define('LCMS', ROOT . '/engine');
+define('LCMS', ROOT . '/framework');
 
-require_once(LCMS . '/globals.php');
-require_once(LCMS . '/livecms.php');
+require_once(LCMS . '/autoload.php');
